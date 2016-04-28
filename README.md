@@ -10,7 +10,19 @@ bridge on a ship, the room or platform where a ship is controlled.
 
 ### How to develop
 
-To start a new project with *Broen*, first clone the repo then in your terminal:
+To start a new project with *Broen*, first clone the repo.
+
+Make sure you have nodejs and npm installed, along with `gulp` and the ruby gem
+`sass`. Gulp and Sass are installed with these commands (added sudo because
+normally required):
+
+```
+sudo npm install gulp -g
+sudo gem install sass
+```
+
+
+Finally, in your terminal:
 
 ``` bash
 # Remove the broen repo
@@ -25,4 +37,5 @@ gulp
 **Sources**
 
 Uses my own [livereload-starter](https://github.com/julianfresco/livereload-starter)
+
 Influenced by the Metronic by Keen Themes
