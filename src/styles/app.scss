@@ -1,3 +1,39 @@
-.page-title {
-  color: dodgerblue;
+@import './_broen-variables.scss';
+
+html, body {
+  height: 100%;
 }
+
+body {
+  color: $base-text-color;
+  background-color: $dark-blue;
+}
+
+/* Utility classes */
+.fullpage {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.rotate-45 {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.rotate-neg-45 {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.transparent-bg {
+  background-color: transparent;
+}
+
+/* Import components */
+@import './_broen-loader.scss';
+@import './_broen-header.scss';
+@import './_broen-nav.scss';
+@import './_broen.scss';

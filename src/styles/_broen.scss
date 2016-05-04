@@ -1,0 +1,28 @@
+@import './_broen-variables.scss';
+
+.broen-body {
+  position: relative;
+  height: 100%;
+  background-color: #fff;
+}
+
+.broen-page {
+  padding-top: 10px;
+  height: 100%;
+  margin-left: $sidebar-open-width;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-left: 1px solid $border-dark;
+}
+
+.nav-collapsed+.broen-page {
+  margin-left: $sidebar-closed-width;
+}
+
+/* Mobile look */
+@media (max-width: 767px) {
+  .broen-page,
+  .nav-collapsed+.broen-page {
+    margin-left: 0;
+  }
+}

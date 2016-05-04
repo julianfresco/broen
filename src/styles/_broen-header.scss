@@ -1,0 +1,43 @@
+@import './_broen-variables.scss';
+
+// reset header text margin/padding
+.broen-header {
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.broen-header {
+  position: static;;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: $header-height;
+  max-height: $header-height;
+  color: $light-text-color;
+  background-color: $dark-blue;
+  border-bottom: 1px solid $border-dark;
+  margin: 0;
+  padding: 5px 0;
+}
+
+.broen-logo {
+  font-size: 2em;
+  font-weight: 200;
+}
+
+.broen-logo-icon {
+  color: $blue;
+}
+
+.logo-text {
+  color: $red;
+}
+
+.broen-top-menu-toggle {
+  margin: 0;
+  padding: 8px;
+  cursor: pointer;
+}

@@ -1,0 +1,34 @@
+@import './_broen-variables.scss';
+
+.loading {
+  overflow-y: hidden;
+}
+
+.broen-loader {
+  display: none;
+  z-index: 101;
+  text-align: center;
+  background-color: #fff;
+}
+
+.loading > .broen-loader {
+  display: block;
+  opacity: 0.9;
+  -moz-transition: opacity 0.25s ease;
+  -webkit-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+}
+
+.loading-fade > .broen-loader {
+  opacity: 0.01;
+}
+
+.broen-loader-text {
+  font-size: 2.5em;
+  margin-top: 20%;
+  padding-top: $header-height;
+}
+
+.broen-loader-icon {
+  font-size: 1.0em;
+}

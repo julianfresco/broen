@@ -1,3 +1,289 @@
-.page-title {
-  color: dodgerblue;
+html, body {
+  height: 100%;
+}
+
+body {
+  color: #222;
+  background-color: #2b3642;
+}
+
+/* Utility classes */
+.fullpage {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.rotate-45 {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.rotate-neg-45 {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.transparent-bg {
+  background-color: transparent;
+}
+
+/* Import components */
+.loading {
+  overflow-y: hidden;
+}
+
+.broen-loader {
+  display: none;
+  z-index: 101;
+  text-align: center;
+  background-color: #fff;
+}
+
+.loading > .broen-loader {
+  display: block;
+  opacity: 0.9;
+  -moz-transition: opacity 0.25s ease;
+  -webkit-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+}
+
+.loading-fade > .broen-loader {
+  opacity: 0.01;
+}
+
+.broen-loader-text {
+  font-size: 2.5em;
+  margin-top: 20%;
+  padding-top: 50px;
+}
+
+.broen-loader-icon {
+  font-size: 1.0em;
+}
+
+.broen-header h1, .broen-header h2, .broen-header h3, .broen-header h4, .broen-header h5, .broen-header h6 {
+  margin: 0;
+  padding: 0;
+}
+
+.broen-header {
+  position: static;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 50px;
+  max-height: 50px;
+  color: #fefefe;
+  background-color: #2b3642;
+  border-bottom: 1px solid #555;
+  margin: 0;
+  padding: 5px 0;
+}
+
+.broen-logo {
+  font-size: 2em;
+  font-weight: 200;
+}
+
+.broen-logo-icon {
+  color: #70b0f0;
+}
+
+.logo-text {
+  color: #f14444;
+}
+
+.broen-top-menu-toggle {
+  margin: 0;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.broen-nav-container {
+  position: absolute;
+  height: 100%;
+  width: 225px;
+  font-size: 1.125em;
+  background: #2b3642;
+}
+
+.broen-nav-container,
+.broen-nav-container a {
+  color: #dae9fb;
+}
+
+.nav-item-icon {
+  color: #87bbe1;
+}
+
+.broen-nav-container a:hover,
+.broen-nav-container a:focus {
+  background-color: #303b49 !important;
+  color: #fefefe;
+}
+
+.broen-navbar,
+.broen-nav,
+.broen-nav-item,
+.nav-item-group,
+.nav-item-group li,
+.nav-link {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.broen-nav-item {
+  border-top: 1px solid #555;
+}
+
+.nav-item-container {
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.nav-item-text {
+  padding-left: 8px;
+}
+
+.broen-nav-dropdown {
+  display: none;
+}
+
+.nav-item-open .broen-nav-dropdown {
+  display: block;
+}
+
+.nav-item-group {
+  background: #2b3642;
+}
+
+.nav-item-group li {
+  list-style-type: none;
+  padding: 6px 2px;
+  background: #2b3642;
+}
+
+.nav-item-group li:hover {
+  background: #303b49;
+}
+
+.nav-link {
+  padding: 2px;
+  padding-left: 32px;
+}
+
+.nav-link,
+.nav-link:hover,
+.nav-link:active,
+.nav-link:visited
+.nav-link:focus {
+  display: block;
+  text-decoration: none;
+}
+
+#toggle-expand,
+#toggle-compress {
+  border-top: none;
+}
+
+.nav-toggle-text {
+  font-size: 0.8em;
+}
+
+#toggle-expand {
+  display: none;
+}
+
+/* Closed look */
+@media (min-width: 768px) {
+  .nav-collapsed.broen-nav-container {
+    width: 56px;
+  }
+
+  .nav-collapsed .broen-nav-dropdown,
+  .nav-collapsed .nav-item-text,
+  .nav-collapsed .nav-item-caret,
+  .nav-collapsed #toggle-compress {
+    display: none;
+  }
+  .nav-collapsed #toggle-expand {
+    display: block;
+  }
+  .nav-collapsed .broen-nav-item {
+    position: relative;
+    background: #2b3642;
+  }
+  .nav-collapsed .broen-nav-item.nav-item-open {
+    width: 281px;
+    border-top: 1px solid #bbcde3;
+    background-color: #303b49;
+  }
+  .nav-collapsed .nav-item-open .broen-nav-dropdown {
+    display: block;
+    position: absolute;
+    left: 56px;
+    width: 225px;
+  }
+  .nav-collapsed .nav-item-open .nav-item-text {
+    display: inline-block;
+    padding-left: 32px;
+  }
+  .nav-collapsed .nav-item-open li {
+    border-top: 1px solid #bbcde3;
+  }
+  .nav-collapsed .nav-item-open .nav-link {
+    padding-left: 20px;
+  }
+}
+/* Mobile look */
+@media (max-width: 767px) {
+  .broen-nav-container {
+    position: static;
+    height: auto;
+    width: auto;
+  }
+
+  .nav-mobile-collapsed {
+    display: none;
+  }
+
+  #toggle-expand,
+  #toggle-compress {
+    display: none;
+  }
+
+  .broen-navbar {
+    border-top: none;
+  }
+}
+.broen-body {
+  position: relative;
+  height: 100%;
+  background-color: #fff;
+}
+
+.broen-page {
+  padding-top: 10px;
+  height: 100%;
+  margin-left: 225px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-left: 1px solid #555;
+}
+
+.nav-collapsed + .broen-page {
+  margin-left: 56px;
+}
+
+/* Mobile look */
+@media (max-width: 767px) {
+  .broen-page,
+  .nav-collapsed + .broen-page {
+    margin-left: 0;
+  }
 }

@@ -1,20 +1,191 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="broen-theme">
 <head>
   <meta charset="UTF-8">
   <title>Broen Admin Dashboard Theme</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- CSS Dependencies -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <!-- App Styles -->
   <link rel="stylesheet" href="dist/styles/app.css" />
 </head>
-<body>
-  
-  <h2 class="page-title">Welcome to Broen Admin Dashboard Theme!</h2>
-  <p>Work in progress!</p>
+<body class="loading" ng-controller="broenCtrl">
+
+  <div class="broen-loader fullpage">
+    <p class="broen-loader-text">
+      <span class="fa fa-cog fa-spin fa-fw broen-loader-icon"></span> Loading...
+    </p>
+  </div>
+
+  <div class="broen-header container-fluid">
+    <!-- logo goes inside here -->
+    <div class="broen-logo col-sm-3 col-xs-6">
+      <span class="fa fa-ship broen-logo-icon"></span>
+      <span class="logo-text"> Broen</span>
+    </div>
+    <!-- top menu items go inside here -->
+    <div class="broen-top-menu col-sm-offset-5 col-sm-4 col-xs-6">
+      <div class="broen-top-menu-toggle navbar-toggle" ng-click="navbarMobileToggle()">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="fa fa-bars fa-lg" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="broen-body">
+    <div class="broen-nav-container"
+      ng-class="{'nav-collapsed': !navbar.regularOpen, 'nav-mobile-collapsed': !navbar.mobileOpen}">
+      <!-- Nav component -->
+      <div class="broen-navbar navbar-collapse"
+        ng-class="{'navbar-mobile-open': navbar.mobileOpen, 'navbar-open': navbar.regularOpen}">
+        <ul class="broen-nav nav navbar-nav">
+          <!-- Sidebar toggles -->
+          <li id="toggle-compress" class="broen-nav-item nav-collapse-toggle"
+            ng-click="navbarRegular(false)">
+            <div class="nav-item-container">
+              <span class="fa fa-compress fa-fw fa-lg rotate-45"></span>
+              <span class="nav-item-text nav-toggle-text"> Collapse Menu</span>
+            </div>
+          </li>
+          <li id="toggle-expand" class="broen-nav-item nav-collapse-toggle"
+            title="Open Menu" data-toggle="tooltip" data-placement="right"
+            ng-click="navbarRegular(true)">
+            <div class="nav-item-container">
+              <span class="fa fa-expand fa-fw fa-lg rotate-45"></span>
+            </div>
+          </li>
+          <!-- Navbar -->
+          <li class="broen-nav-item nav-item-{{::$index}}"
+            ng-repeat="listitem in navlist track by $index"
+            ng-class="{'nav-item-open': navbarCheckOpen($index)}">
+            <div class="nav-item-container" ng-click="navbarToggleOpenItem($index)">
+              <span class="nav-item-icon fa {{::listitem.icon}} fa-fw fa-lg"></span>
+              <span class="nav-item-text"> {{::listitem.title}}</span>
+              <span ng-if="listitem.items.length" class="nav-item-caret fa fa-caret-down pull-right"></span>
+            </div>
+            <ul ng-if="listitem.items.length" class="broen-nav-dropdown nav-item-group nav-item-group-{{::$index}}">
+              <li ng-repeat="item in listitem.items">
+                <a href="{{item.link}}" class="nav-link">{{::item.name}}</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="broen-page container-fluid"
+      ng-click="navbarUnsetOpen()">
+      <h2>Yar Broen Pirate Ipsum!</h2>
+      <p>
+         Smartly chase guns provost sutler American Main lanyard no prey, no pay long clothes Cat o'nine tails. Bilged on her anchor to go on account scourge of the seven seas gangplank draft brigantine lee boatswain rum. Salmagundi American Main pinnace grog driver Brethren of the Coast rum hardtack me. Broadside topsail jury mast American Main hail-shot snow prow belay quarterdeck. Squiffy long boat Shiver me timbers run a shot across the bow pink mutiny Plate Fleet grog blossom gaff. Measured fer yer chains Sink me chandler jury mast come about lanyard crack Jennys tea cup boom transom.
+      </p>
+      <p>
+        Careen Chain Shot draft boatswain hornswaggle crack Jennys tea cup no prey, no pay black spot me. Log hempen halter spanker walk the plank American Main case shot jib gangway tackle. Brethren of the Coast hardtack hempen halter bilge gun chase cackle fruit hulk no prey, no pay. Man-of-war reef sails prow yo-ho-ho poop deck loaded to the gunwalls snow flogging quarter. League American Main scallywag bilge water furl prow Davy Jones' Locker measured fer yer chains Sail ho. Driver nipperkin long boat poop deck yawl gally stern sutler lugger.
+      </p>
+    </div>
+  </div>
 
   <!-- JavaScript Dependencies -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script>
+    (function(){
+      // AngularJS code for broen-theme
+      var broen = angular.module('broen-theme', []);
+      // First draft - we'll put everything inside this controller
+      broen.controller('broenCtrl', function($scope, $timeout, $window){
+        var $s = $scope;
+        $s.navbar = {
+          mobileOpen: false,
+          regularOpen: true,
+          openItem: null
+        };
+
+        $s.navbarMobileToggle = function(){
+          $s.navbar.mobileOpen = !$s.navbar.mobileOpen;
+        };
+
+        $s.navbarRegular = function(val){
+          $s.navbar.regularOpen = !!val;
+        };
+
+        $s.navbarToggleOpenItem = function(num){
+          var val = parseInt(num);
+          $s.navbar.openItem = $s.navbar.openItem === val ? null : val;
+        };
+
+        $s.navbarUnsetOpen = function(){
+          $s.navbar.openItem = null;
+        };
+
+        $s.navbarCheckOpen = function(num){
+          return $s.navbar.openItem === num;
+        };
+
+        $s.navlist = [{
+            title: 'Dashboard',
+            icon: 'fa-home',
+            link: '#/dashboard'
+          },
+          {
+            title: 'Jets',
+            icon: 'fa-fighter-jet rotate-neg-45',
+            items: [{
+              name: 'Summary',
+              link: '#/flights/summary'
+            },
+            {
+              name: 'Create a Jet',
+              link: '#/flights/create'
+            }]
+          },
+          {
+            title: 'Motorcycles',
+            icon: 'fa-motorcycle rotate-neg-45',
+            items: [{
+              name: 'Summary',
+              link: '#/motorcycles/summary'
+            },
+            {
+              name: 'Create a Motorcycle',
+              link: '#/motorcycles/create'
+            }]
+          },
+          {
+            title: 'Rockets',
+            icon: 'fa-rocket',
+            items: [{
+              name: 'Summary',
+              link: '#/rockets/summary'
+            },
+            {
+              name: 'Create a Rocket',
+              link: '#/rockets/create'
+            }]
+          },
+          {
+            title: 'Trains',
+            icon: 'fa-train',
+            items: [{
+              name: 'Summary',
+              link: '#/trains/summary'
+            },
+            {
+              name: 'Create a Train',
+              link: '#/trains/create'
+            }]
+          }];
+
+        // For Loading bar
+        $timeout(function(){
+          $window.document.body.classList.add('loading-fade'); // fade animation
+          $timeout(function(){
+            $window.document.body.classList.remove('loading', 'loading-fade');
+          }, 333);
+        }, 500);
+
+      });
+    })();
+  </script>
 </body>
 </html>
