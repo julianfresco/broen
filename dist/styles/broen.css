@@ -261,6 +261,10 @@ body {
     border-top: none;
   }
 }
+.broen-container {
+  height: 100%;
+}
+
 .broen-body {
   position: relative;
   height: 100%;

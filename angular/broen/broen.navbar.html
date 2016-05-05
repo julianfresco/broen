@@ -1,0 +1,45 @@
+<div class="broen-nav-container"
+  ng-class="{
+    'nav-collapsed': !nav.state.regularOpen,
+    'nav-mobile-collapsed': !nav.state.mobileOpen
+  }">
+  <div class="broen-navbar navbar-collapse"
+    ng-class="{
+      'navbar-mobile-open': nav.state.mobileOpen,
+      'navbar-open': nav.state.regularOpen
+    }">
+
+    <ul class="broen-nav nav navbar-nav">
+      <!-- Sidebar toggles -->
+      <li id="toggle-compress" class="broen-nav-item nav-collapse-toggle"
+        ng-click="nav.navbarRegular(false)">
+        <div class="nav-item-container">
+          <span class="fa fa-compress fa-fw fa-lg rotate-45"></span>
+          <span class="nav-item-text nav-toggle-text"> Collapse Menu</span>
+        </div>
+      </li>
+      <li id="toggle-expand" class="broen-nav-item nav-collapse-toggle"
+        title="Open Menu" data-toggle="tooltip" data-placement="right"
+        ng-click="nav.navbarRegular(true)">
+        <div class="nav-item-container">
+          <span class="fa fa-expand fa-fw fa-lg rotate-45"></span>
+        </div>
+      </li>
+      <!-- Navbar -->
+      <li class="broen-nav-item nav-item-{{::$index}}"
+        ng-repeat="listitem in nav.navlist track by $index"
+        ng-class="{'nav-item-open': nav.navbarCheckOpen($index)}">
+        <div class="nav-item-container" ng-click="nav.navbarToggleOpenItem($index)">
+          <span class="nav-item-icon fa {{::listitem.icon}} fa-fw fa-lg"></span>
+          <span class="nav-item-text"> {{::listitem.title}}</span>
+          <span ng-if="listitem.items.length" class="nav-item-caret fa fa-caret-down pull-right"></span>
+        </div>
+        <ul ng-if="listitem.items.length" class="broen-nav-dropdown nav-item-group nav-item-group-{{::$index}}">
+          <li ng-repeat="item in listitem.items">
+            <a href="{{item.link}}" class="nav-link">{{::item.name}}</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="broen-container loading">
+  <div class="broen-loader fullpage">
+    <p class="broen-loader-text">
+      <span class="fa fa-cog fa-spin fa-fw broen-loader-icon"></span> Loading...
+    </p>
+  </div>
+
+  <div broen-header></div>
+  <div class="broen-body">
+    <div broen-navbar></div>
+    <div class="broen-page container-fluid" ng-click="nav.navbarUnsetOpen()">
+      <!-- User's content transcludes here -->
+      <div ng-transclude></div>
+    </div>
+  </div>
+</div>
