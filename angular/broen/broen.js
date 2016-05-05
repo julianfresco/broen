@@ -9,14 +9,6 @@ angular.module('broen',[])
       transclude: true,
       link: function(scope, element) {
         scope.nav = broenNavState;
-
-        // For Loading pane
-        $timeout(function(){
-          element.addClass('loading-fade'); // fade animation
-          $timeout(function(){
-            element.removeClass('loading').removeClass('loading-fade');
-          }, 333);
-        }, 100);
       }
     };
   });

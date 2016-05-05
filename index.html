@@ -12,6 +12,15 @@
 </head>
 <body>
 
+  <!-- Loader -->
+  <div class="broen-loader-container fullpage loading">
+    <div class="broen-loader fullpage">
+      <p class="broen-loader-text">
+        <span class="fa fa-cog fa-spin fa-fw broen-loader-icon"></span> Loading...
+      </p>
+    </div>
+  </div>
+
   <broen-theme>
     <!-- Place your content here -->
     <h2>Yar Broen Pirate Ipsum!</h2>
@@ -94,9 +103,18 @@
 
         broenNavProvider.setNav(yourNavList);
       });
-
-
     })();
+  </script>
+  
+  <script>
+    // Remove the Loader
+    setTimeout(function(){
+      var loader = document.querySelector('.broen-loader-container');
+      loader.classList.add('loading-fade'); // fade animation
+      setTimeout(function(){
+        document.body.removeChild(loader);
+      }, 250);
+    }, 400);
   </script>
 </body>
 </html>
