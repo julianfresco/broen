@@ -36,7 +36,16 @@ angular.module('broen')
       $location.path(destination);
     };
 
+    var originalNavlist = broenNav.nav;
     // This sets the nav items
-    self.navlist = broenNav.nav;
+    self.navlist = originalNavlist;
+    self.filterNav = function(filterFunction){
+      if(filterFunction && typeof filterFunction === 'function') {
+        self.navlist = originalNavlist.filter(filterFunction);
+      }
+      else {
+        self.navlist = originalNavlist;
+      }
+    };
 
   });

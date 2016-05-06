@@ -10,7 +10,7 @@
   <!-- App Styles -->
   <link rel="stylesheet" href="dist/styles/broen.css" />
 </head>
-<body>
+<body ng-controller="yourAppCtrl">
 
   <!-- Loader -->
   <div class="broen-loader-container fullpage loading">
@@ -107,6 +107,15 @@
         broenNavProvider.setNav(yourNavList); // Adds your navList to broen
         broenNavProvider.setCollapseItemOnBlur(true); // Sidebar Items collapse on blur
 
+      });
+
+      /* Demo: filtering the nav */
+      yourApp.controller('yourAppCtrl', function(broenNavState){
+        broenNavState.filterNav(function(navItem){
+          return true; // returns all original navItems
+          // return !!navItem.link; // returns navItems with no children
+          // return !!!navItem.link; // returns navItems with children
+        });
       });
     })();
   </script>
