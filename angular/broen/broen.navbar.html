@@ -28,15 +28,18 @@
       <!-- Navbar -->
       <li class="broen-nav-item nav-item-{{::$index}}"
         ng-repeat="listitem in nav.navlist track by $index"
-        ng-class="{'nav-item-open': nav.navbarCheckOpen($index)}">
+        ng-class="{'nav-item-open': nav.navbarCheckOpen($index)}"
+        ng-click="nav.navigate(listitem.link)">
         <div class="nav-item-container" ng-click="nav.navbarToggleOpenItem($index)">
           <span class="nav-item-icon fa {{::listitem.icon}} fa-fw fa-lg"></span>
           <span class="nav-item-text"> {{::listitem.title}}</span>
           <span ng-if="listitem.items.length" class="nav-item-caret fa fa-caret-down pull-right"></span>
         </div>
         <ul ng-if="listitem.items.length" class="broen-nav-dropdown nav-item-group nav-item-group-{{::$index}}">
-          <li ng-repeat="item in listitem.items">
-            <a href="{{item.link}}" class="nav-link">{{::item.name}}</a>
+          <li class="nav-link"
+            ng-repeat="item in listitem.items"
+            ng-click="nav.navigate(item.link)">
+              {{::item.name}}
           </li>
         </ul>
       </li>

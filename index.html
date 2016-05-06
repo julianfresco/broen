@@ -50,18 +50,18 @@
         var yourNavList = [{
             title: 'Dashboard',
             icon: 'fa-home',
-            link: '#/dashboard'
+            link: 'dashboard'
           },
           {
             title: 'Jets',
             icon: 'fa-fighter-jet rotate-neg-45',
             items: [{
               name: 'Summary',
-              link: '#/jets/summary'
+              link: 'jets/summary'
             },
             {
               name: 'Create a Jet',
-              link: '#/jets/create'
+              link: 'jets/create'
             }]
           },
           {
@@ -69,11 +69,11 @@
             icon: 'fa-motorcycle rotate-neg-45',
             items: [{
               name: 'Summary',
-              link: '#/motorcycles/summary'
+              link: 'motorcycles/summary'
             },
             {
               name: 'Create a Motorcycle',
-              link: '#/motorcycles/create'
+              link: 'motorcycles/create'
             }]
           },
           {
@@ -81,11 +81,11 @@
             icon: 'fa-rocket',
             items: [{
               name: 'Summary',
-              link: '#/rockets/summary'
+              link: 'rockets/summary'
             },
             {
               name: 'Create a Rocket',
-              link: '#/rockets/create'
+              link: 'rockets/create'
             }]
           },
           {
@@ -93,15 +93,15 @@
             icon: 'fa-train',
             items: [{
               name: 'Summary',
-              link: '#/trains/summary'
+              link: 'trains/summary'
             },
             {
               name: 'Create a Train',
-              link: '#/trains/create'
+              link: 'trains/create'
             }]
           }];
 
-        broenNavProvider.setNav(yourNavList); // Adds your navList to broenNav directive
+        broenNavProvider.setNav(yourNavList); // Adds your navList to broen
         broenNavProvider.setCollapseItemOnBlur(true); // Sidebar Items collapse on blur
 
       });

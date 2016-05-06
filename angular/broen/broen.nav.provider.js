@@ -4,18 +4,18 @@ angular.module('broen')
     var defaultNav = [{
         title: 'Dashboard',
         icon: 'fa-home',
-        link: '#/dashboard'
+        link: 'dashboard'
       },
       {
         title: 'Broen How To',
         icon: 'fa-motorcycle rotate-neg-45',
         items: [{
           name: 'Angular Overview',
-          link: '#/broen'
+          link: 'broen'
         },
         {
           name: 'Broen Configurations',
-          link: '#/broen/config'
+          link: 'broen/config'
         }]
       }];
 

@@ -1,5 +1,5 @@
 angular.module('broen')
-  .service('broenNavState', function(broenNav){
+  .service('broenNavState', function($location, broenNav){
     var self = this;
 
     self.state = {
@@ -29,6 +29,11 @@ angular.module('broen')
 
     self.navbarCheckOpen = function(num){
       return self.state.openItem === num;
+    };
+
+    self.navigate = function(destination){
+      if(!destination) { return; }
+      $location.path(destination);
     };
 
     // This sets the nav items

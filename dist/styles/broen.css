@@ -164,8 +164,9 @@ body {
 
 .nav-item-group li {
   list-style-type: none;
-  padding: 6px 2px;
+  padding: 8px 2px 8px 32px;
   background: #2b3642;
+  cursor: pointer;
 }
 
 .nav-item-group li:hover {
