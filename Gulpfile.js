@@ -2,10 +2,26 @@
 var config = require('./config.project.json');
 
 var gulp = require('gulp'),
+  concat = require('gulp-concat'),
   sass = require('gulp-ruby-sass'),
   autoprefixer = require('gulp-autoprefixer'),
   minifycss = require('gulp-minify-css'),
-  rename = require('gulp-rename');
+  rename = require('gulp-rename'),
+  uglify = require('gulp-uglify'),
+  ngAnnotate = require('gulp-ng-annotate');
+
+gulp.task('angular', function(){
+  return gulp.src([
+      config.angularSource+'/'+config.angularAppName+'.js',
+      config.angularSource+'/'+config.angularAppName+'.**.js'
+    ])
+    .pipe(concat(config.angularAppName +'.js'))
+    .pipe(gulp.dest(config.angularTarget))
+    .pipe(rename({suffix: '.min'}))
+    .pipe(ngAnnotate())
+    .pipe(uglify())
+    .pipe(gulp.dest(config.angularTarget));
+});
 
 gulp.task('express', function() {
   var express = require('express');
@@ -42,11 +58,13 @@ gulp.task('styles', function() {
 
 gulp.task('watch', function() {
   gulp.watch('./'+config.scssSource+'/**.scss', ['styles']);
+  gulp.watch('./'+config.angularSource+'/**.js', ['angular']);
   gulp.watch('./**.html', notifyLiveReload);
   gulp.watch('./'+config.cssTarget+'/**.css', notifyLiveReload);
+  gulp.watch('./'+config.angularTarget+'/**.js', notifyLiveReload);
 });
 
-gulp.task('default', ['styles', 'express', 'livereload', 'watch'], function() {
+gulp.task('default', ['styles', 'angular', 'express', 'livereload', 'watch'], function() {
   console.log('Connected to livereload on port %s', config.livereloadPort);
   console.log('Connected to express on port %s', config.port);
 });

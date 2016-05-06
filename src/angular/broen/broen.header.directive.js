@@ -1,12 +1,11 @@
 angular.module('broen')
   .directive('broenHeader',function($window, $compile, broenNavState, broenLogo){
     return {
-      templateUrl: 'angular/broen/broen.header.html',
+      templateUrl: 'src/angular/broen/broen.header.html',
       restrict: 'A',
       replace: true,
       link: function(scope, element) {
         scope.nav = broenNavState;
-
         // Append the user configurable logo to the page
         angular
           .element(element.children()[0])

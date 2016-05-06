@@ -34,12 +34,7 @@
 
   <!-- JavaScript Dependencies -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-  <script src="angular/broen/broen.js"></script>
-  <script src="angular/broen/broen.nav.provider.js"></script>
-  <script src="angular/broen/broen.logo.provider.js"></script>
-  <script src="angular/broen/broen.nav.state.service.js"></script>
-  <script src="angular/broen/broen.navbar.directive.js"></script>
-  <script src="angular/broen/broen.header.directive.js"></script>
+  <script src="dist/angular/broen.js"></script>
   <script>
     (function(){
       // AngularJS implementation: include the broen module in your app
@@ -53,7 +48,7 @@
         var yourLogoHtml = '<span class="fa fa-trophy broen-logo-icon"></span>' +
           '<span> Broen FTW<span class="logo-text">!!!</span></span>';
 
-        broenLogoProvider.setLogo( yourLogoHtml )
+        broenLogoProvider.setLogo( yourLogoHtml ); // Adds your logo to broen
 
         var yourNavList = [{
             title: 'Dashboard',
