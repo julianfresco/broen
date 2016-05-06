@@ -1,7 +1,7 @@
 angular.module('broen')
   .directive('broenHeader',function($window, $compile, broenNavState, broenLogo){
     return {
-      templateUrl: 'src/angular/broen/broen.header.html',
+      templateUrl: 'broen/templates/broen.header.html',
       restrict: 'A',
       replace: true,
       link: function(scope, element) {

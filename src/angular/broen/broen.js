@@ -3,7 +3,7 @@
 angular.module('broen',[])
   .directive('broenTheme',function(broenNavState){
     return {
-      templateUrl: 'src/angular/broen/broen.html',
+      templateUrl: 'broen/templates/broen.html',
       restrict: 'EA',
       replace: true,
       transclude: true,

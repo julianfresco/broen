@@ -8,9 +8,25 @@ var gulp = require('gulp'),
   minifycss = require('gulp-minify-css'),
   rename = require('gulp-rename'),
   uglify = require('gulp-uglify'),
-  ngAnnotate = require('gulp-ng-annotate');
+  ngAnnotate = require('gulp-ng-annotate'),
+  ngTemplateCache = require('gulp-angular-templatecache');
 
-gulp.task('angular', function(){
+gulp.task('angular-templates', function(){
+  // Create template cache
+  return gulp.src(config.angularSource+'/**.html')
+    .pipe(ngTemplateCache(
+      config.angularAppName+'.templates.js',
+      {
+        module: config.angularAppName,
+        root: config.angularAppName+"/templates/",
+        standAlone: false
+      }
+    ))
+    .pipe(gulp.dest(config.angularSource));
+});
+
+gulp.task('angular', ['angular-templates'], function(){
+  // Concat and minify js
   return gulp.src([
       config.angularSource+'/'+config.angularAppName+'.js',
       config.angularSource+'/'+config.angularAppName+'.**.js'
