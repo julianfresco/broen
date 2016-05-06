@@ -20,10 +20,15 @@ angular.module('broen')
       }];
 
     var broenNavItems = defaultNav;
+    var collapseItemOnBlur = false;
 
     this.setNav = function(navObject){
       // TODO: add some validations
       broenNavItems = navObject;
+    };
+
+    this.setCollapseItemOnBlur = function(value){
+      collapseItemOnBlur = !!value;
     };
 
     this.$get = function(){
@@ -32,7 +37,11 @@ angular.module('broen')
           'See the docs to learn how to pass in your own nav items as a config ' +
           'to broenNavItemsProvider.')
       }
-      return broenNavItems;
+
+      return {
+        nav: broenNavItems,
+        collapseItemOnBlur: collapseItemOnBlur
+      };
     }
 
   });

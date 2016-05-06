@@ -101,11 +101,13 @@
             }]
           }];
 
-        broenNavProvider.setNav(yourNavList);
+        broenNavProvider.setNav(yourNavList); // Adds your navList to broenNav directive
+        broenNavProvider.setCollapseItemOnBlur(true); // Sidebar Items collapse on blur
+
       });
     })();
   </script>
-  
+
   <script>
     // Remove the Loader
     setTimeout(function(){

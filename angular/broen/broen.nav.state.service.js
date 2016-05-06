@@ -22,7 +22,9 @@ angular.module('broen')
     };
 
     self.navbarUnsetOpen = function(){
-      self.state.openItem = null;
+      if(broenNav.collapseItemOnBlur){
+        self.state.openItem = null;
+      }
     };
 
     self.navbarCheckOpen = function(num){
@@ -30,6 +32,6 @@ angular.module('broen')
     };
 
     // This sets the nav items
-    self.navlist = broenNav;
+    self.navlist = broenNav.nav;
 
   });
