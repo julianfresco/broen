@@ -26,6 +26,8 @@
 .broen-logo {
   font-size: 2em;
   font-weight: 200;
+  max-height: $header-height;
+  overflow: hidden;
 }
 
 .broen-logo-icon {

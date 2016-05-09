@@ -1,3 +1,9 @@
+/** Main Theme Base colors **/
+/** Add Other Theme Vars Here, then Replace Style Sheet Variables **/
+/** Layout **/
+/**
+ * Style Sheet Variables
+ **/
 html, body {
   height: 100%;
 }
@@ -31,6 +37,12 @@ body {
 }
 
 /* Import components */
+/** Main Theme Base colors **/
+/** Add Other Theme Vars Here, then Replace Style Sheet Variables **/
+/** Layout **/
+/**
+ * Style Sheet Variables
+ **/
 .loading {
   overflow-y: hidden;
 }
@@ -39,7 +51,7 @@ body {
   display: none;
   z-index: 101;
   text-align: center;
-  background-color: #fff;
+  background-color: #fefefe;
 }
 
 .loading > .broen-loader {
@@ -64,6 +76,12 @@ body {
   font-size: 1.0em;
 }
 
+/** Main Theme Base colors **/
+/** Add Other Theme Vars Here, then Replace Style Sheet Variables **/
+/** Layout **/
+/**
+ * Style Sheet Variables
+ **/
 .broen-header h1, .broen-header h2, .broen-header h3, .broen-header h4, .broen-header h5, .broen-header h6 {
   margin: 0;
   padding: 0;
@@ -87,6 +105,8 @@ body {
 .broen-logo {
   font-size: 2em;
   font-weight: 200;
+  max-height: 50px;
+  overflow: hidden;
 }
 
 .broen-logo-icon {
@@ -101,8 +121,15 @@ body {
   margin: 0;
   padding: 8px;
   cursor: pointer;
+  color: #fefefe;
 }
 
+/** Main Theme Base colors **/
+/** Add Other Theme Vars Here, then Replace Style Sheet Variables **/
+/** Layout **/
+/**
+ * Style Sheet Variables
+ **/
 .broen-nav-container {
   position: absolute;
   height: 100%;
@@ -122,8 +149,8 @@ body {
 
 .broen-nav-container a:hover,
 .broen-nav-container a:focus {
-  background-color: #303b49 !important;
   color: #fefefe;
+  background-color: #303b49 !important;
 }
 
 .broen-navbar,
@@ -274,6 +301,12 @@ body {
     border-top: none;
   }
 }
+/** Main Theme Base colors **/
+/** Add Other Theme Vars Here, then Replace Style Sheet Variables **/
+/** Layout **/
+/**
+ * Style Sheet Variables
+ **/
 .broen-container {
   height: 100%;
 }
@@ -281,7 +314,7 @@ body {
 .broen-body {
   position: relative;
   height: 100%;
-  background-color: #fff;
+  background-color: #fefefe;
 }
 
 .broen-page {
@@ -289,7 +322,7 @@ body {
   height: 100%;
   margin-left: 225px;
   box-sizing: border-box;
-  background-color: #fff;
+  background-color: #fefefe;
   border-left: 1px solid #555;
 }
 
