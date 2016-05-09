@@ -7,7 +7,7 @@
 .broen-body {
   position: relative;
   height: 100%;
-  background-color: #fff;
+  background-color: $broen-body-bg;
 }
 
 .broen-page {
@@ -15,8 +15,8 @@
   height: 100%;
   margin-left: $sidebar-open-width;
   box-sizing: border-box;
-  background-color: #fff;
-  border-left: 1px solid $border-dark;
+  background-color: $broen-page-bg;
+  border-left: 1px solid $broen-page-border-color;
 }
 
 .nav-collapsed+.broen-page {

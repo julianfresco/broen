@@ -16,9 +16,9 @@
   width: 100%;
   height: $header-height;
   max-height: $header-height;
-  color: $light-text-color;
-  background-color: $dark-blue;
-  border-bottom: 1px solid $border-dark;
+  color: $header-text-color;
+  background-color: $header-bg;
+  border-bottom: 1px solid $header-border-color;
   margin: 0;
   padding: 5px 0;
 }
@@ -29,15 +29,16 @@
 }
 
 .broen-logo-icon {
-  color: $blue;
+  color: $header-logo-icon-color;
 }
 
 .logo-text {
-  color: $red;
+  color: $header-text-emphasis-color;
 }
 
 .broen-top-menu-toggle {
   margin: 0;
   padding: 8px;
   cursor: pointer;
+  color: $header-mobile-nav-toggle-color;
 }

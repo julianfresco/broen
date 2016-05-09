@@ -5,22 +5,22 @@
   height: 100%;
   width: $sidebar-open-width;
   font-size: 1.125em;
-  background: $dark-blue;
+  background: $nav-bg;
 }
 
 .broen-nav-container,
 .broen-nav-container a {
-  color: $light-blue-lighter-2x;
+  color: $nav-link-color;
 }
 
 .nav-item-icon {
-  color: $light-blue;
+  color: $nav-icon-color;
 }
 
 .broen-nav-container a:hover,
 .broen-nav-container a:focus {
-  background-color: $dark-blue-lighter !important;
-  color: $light-text-color;
+  color: $nav-link-active-color;
+  background-color: $nav-link-active-bg !important;
 }
 
 .broen-navbar,
@@ -35,7 +35,7 @@
 }
 
 .broen-nav-item {
-  border-top: 1px solid $border-dark;
+  border-top: 1px solid $nav-item-border-color;
 }
 
 .nav-item-container {
@@ -62,18 +62,18 @@
 }
 
 .nav-item-group {
-  background: $dark-blue;
+  background: $nav-item-group-bg;
 }
 
 .nav-item-group li {
   list-style-type: none;
   padding: 8px 2px 8px 32px;
-  background: $dark-blue;
+  background: $nav-item-group-item-bg;
   cursor: pointer;
 }
 
 .nav-item-group li:hover {
-  background: $dark-blue-lighter;
+  background: $nav-item-group-item-active-bg;
 }
 
 .nav-link {
@@ -123,14 +123,14 @@
 
     .broen-nav-item {
       position: relative;
-      background: $dark-blue;
+      background: $nav-item-bg;
     }
 
     // flyout dropdown
     .broen-nav-item.nav-item-open {
       width: $sidebar-open-width + $sidebar-closed-width;
-      border-top: 1px solid $border-light;
-      background-color: $dark-blue-lighter;
+      border-top: 1px solid $nav-flyout-item-border-color;
+      background-color: $nav-flyout-item-bg;
     }
     .nav-item-open {
       .broen-nav-dropdown {
@@ -146,7 +146,7 @@
         padding-left: 32px;
       }
       li {
-        border-top: 1px solid $border-light;
+        border-top: 1px solid $nav-flyout-item-border-color;
       }
       .nav-link {
         padding-left: 20px;

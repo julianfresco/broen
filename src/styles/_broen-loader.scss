@@ -8,19 +8,19 @@
   display: none;
   z-index: 101;
   text-align: center;
-  background-color: #fff;
+  background-color: $loader-bg;
 }
 
 .loading > .broen-loader {
   display: block;
-  opacity: 0.9;
-  -moz-transition: opacity 0.25s ease;
-  -webkit-transition: opacity 0.25s ease;
-  transition: opacity 0.25s ease;
+  opacity: $loader-opacity-visible;
+  -moz-transition: opacity $loader-opacity-transition-time $loader-opacity-transition-effect;
+  -webkit-transition: opacity $loader-opacity-transition-time $loader-opacity-transition-effect;
+  transition: opacity $loader-opacity-transition-time $loader-opacity-transition-effect;
 }
 
 .loading-fade > .broen-loader {
-  opacity: 0.01;
+  opacity: $loader-opacity-hidden;
 }
 
 .broen-loader-text {

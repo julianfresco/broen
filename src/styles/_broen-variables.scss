@@ -1,22 +1,67 @@
+/** Main Theme Base colors **/
 $base-text-color: #222;
-$light-text-color: #fefefe;
-
+$base-text-color-light: #fefefe;
 // Blues
-$blue: #70b0f0;
-$light-blue: #87bbe1;
-$light-blue-lighter: #b9dcf5;
-$light-blue-lighter-2x: #dae9fb;
-$dark-blue: #2b3642;
-$dark-blue-lighter: #303b49;
-$border-light: #bbcde3;
-$border-dark: #555;
+$base-blue: #70b0f0;
+$base-blue-light: #87bbe1;
+$base-blue-light-lighter: #b9dcf5;
+$base-blue-light-lighter-2x: #dae9fb;
+$base-blue-dark: #2b3642;
+$base-blue-dark-lighter: #303b49;
+// Borders
+$base-border-light: #bbcde3;
+$base-border-dark: #555;
+// Other colors
+$base-red: #f14444;
+$base-white: #fefefe;
 
-$red: #f14444;
-$transparent-white: rgba(255,255,255,0.7);
+/** Add Other Theme Vars Here, then Replace Style Sheet Variables **/
+// ...
 
+/** Layout **/
 // Sidebar
 $sidebar-open-width: 225px;
 $sidebar-closed-width: 56px;
-
 // Header
 $header-height: 50px;
+
+/**
+ * Style Sheet Variables
+ **/
+// Header
+$header-text-color:                 $base-text-color-light;
+$header-bg:                         $base-blue-dark;
+$header-border-color:               $base-border-dark;
+$header-logo-icon-color:            $base-blue;
+$header-text-emphasis-color:        $base-red;
+$header-mobile-nav-toggle-color:    $base-white;
+
+// Nav
+$nav-bg:                            $base-blue-dark;
+$nav-link-color:                    $base-blue-light-lighter-2x;
+$nav-link-active-color:             $base-text-color-light;
+$nav-link-active-bg:                $base-blue-dark-lighter;
+$nav-icon-color:                    $base-blue-light;
+$nav-item-border-color:             $base-border-dark;
+$nav-item-bg:                       $base-blue-dark;
+
+$nav-item-group-bg:                 $base-blue-dark;
+$nav-item-group-item-bg:            $base-blue-dark;
+$nav-item-group-item-active-bg:     $base-blue-dark-lighter;
+
+$nav-flyout-item-border-color:      $base-border-light;
+$nav-flyout-item-bg:                $base-blue-dark-lighter;
+
+// Page
+$body-bg:                           $base-blue-dark;
+$body-text-color:                   $base-text-color;
+$broen-body-bg:                     $base-white;
+$broen-page-bg:                     $base-white;
+$broen-page-border-color:           $base-border-dark;
+
+// Loader
+$loader-bg:                         $base-white;
+$loader-opacity-visible:            0.9;
+$loader-opacity-hidden:             0.01;
+$loader-opacity-transition-time:    0.25s;
+$loader-opacity-transition-effect:  ease;
