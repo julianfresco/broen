@@ -206,11 +206,6 @@ body {
   background: #303b49;
 }
 
-.nav-link {
-  padding: 2px;
-  padding-left: 32px;
-}
-
 .nav-link,
 .nav-link:hover,
 .nav-link:active,
@@ -218,6 +213,16 @@ body {
 .nav-link:focus {
   display: block;
   text-decoration: none;
+}
+
+.nav-link {
+  padding: 2px;
+  padding-left: 32px;
+  display: none;
+}
+
+.nav-item-open .nav-link {
+  display: block;
 }
 
 #toggle-expand,
