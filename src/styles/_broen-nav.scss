@@ -95,6 +95,18 @@
   display: block;
 }
 
+.nav-item-caret-down {
+  display: none;
+}
+
+.nav-item-open .nav-item-caret-down {
+  display: block;
+}
+
+.nav-item-open .nav-item-caret-left {
+  display: none;
+}
+
 #toggle-expand,
 #toggle-compress {
   border-top: none;
