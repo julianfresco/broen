@@ -273,6 +273,7 @@ body {
     width: 281px;
     border-top: 1px solid #bbcde3;
     background-color: #303b49;
+    z-index: 100;
   }
   .nav-collapsed .nav-item-open .broen-nav-dropdown {
     display: block;

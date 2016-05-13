@@ -148,6 +148,7 @@
       width: $sidebar-open-width + $sidebar-closed-width;
       border-top: 1px solid $nav-flyout-item-border-color;
       background-color: $nav-flyout-item-bg;
+      z-index: 100;
     }
     .nav-item-open {
       .broen-nav-dropdown {
