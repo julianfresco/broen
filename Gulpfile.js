@@ -74,7 +74,7 @@ gulp.task('styles', function() {
 
 gulp.task('watch', function() {
   gulp.watch('./'+config.scssSource+'/**.scss', ['styles']);
-  gulp.watch('./'+config.angularSource+'/**.js', ['angular']);
+  gulp.watch('./'+config.angularSource+'/**', ['angular']);
   gulp.watch('./**.html', notifyLiveReload);
   gulp.watch('./'+config.cssTarget+'/**.css', notifyLiveReload);
   gulp.watch('./'+config.angularTarget+'/**.js', notifyLiveReload);
