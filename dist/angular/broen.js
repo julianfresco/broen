@@ -112,6 +112,9 @@ angular.module('broen')
 
     self.navbarRegular = function(val){
       self.state.regularOpen = !!val;
+      if(!self.state.regularOpen) {
+        self.state.openItem = null;
+      }
     };
 
     self.navbarToggleOpenItem = function(num){
