@@ -187,7 +187,7 @@ body {
 
 .nav-item-open .broen-nav-dropdown {
   opacity: 1;
-  max-height: 240px;
+  max-height: 540px;
   z-index: auto;
 }
 
@@ -306,8 +306,12 @@ body {
 
   .nav-mobile-collapsed {
     opacity: 1;
-    max-height: 600px;
+    max-height: 1200px;
     z-index: auto;
+  }
+
+  .broen-navbar.navbar-collapse {
+    max-height: initial;
   }
 
   #toggle-expand,
