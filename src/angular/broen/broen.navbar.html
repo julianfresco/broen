@@ -33,8 +33,10 @@
         <div class="nav-item-container" ng-click="nav.navbarToggleOpenItem($index)">
           <span class="nav-item-icon fa {{::listitem.icon}} fa-fw fa-lg"></span>
           <span class="nav-item-text"> {{::listitem.title}}</span>
-          <span class="nav-item-caret nav-item-caret-left fa fa-caret-left pull-right"></span>
-          <span class="nav-item-caret nav-item-caret-down fa fa-caret-down pull-right"></span>
+          <span class="nav-item-caret nav-item-caret-left fa fa-caret-left pull-right"
+            ng-if="!listitem.link && (listitem.items && listitem.items.length)"></span>
+          <span class="nav-item-caret nav-item-caret-down fa fa-caret-down pull-right"
+            ng-if="!listitem.link && (listitem.items && listitem.items.length)"></span>
         </div>
         <ul ng-if="listitem.items.length" class="broen-nav-dropdown nav-item-group nav-item-group-{{::$index}}">
           <li class="nav-link"
