@@ -14,37 +14,56 @@ angular.module('broen',[])
   });
 
 angular.module('broen')
-  .directive('broenHeader',function($window, $compile, broenNavState, broenLogo){
+  .provider('broenCustomize',function(){
+
+
+    // Local Variable defaults
+
+    var defaultLogo = '<span class="fa fa-ship broen-logo-icon"></span>' +
+      '<span class="logo-text"> Broen</span>';
+
+    var defaultHeaderMenu = '<div class="pull-right broen-headermenu-text">Hello Broen!</div>'
+
+    var logo = defaultLogo,
+        headerMenu = defaultHeaderMenu;
+
+
+    // Public Access Methods
+
+    this.setLogo = function(html){
+      logo = html;
+    }
+
+    this.setHeaderMenu = function(html){
+      headerMenu = html;
+    }
+
+    this.$get = function(){
+      return {
+        logo: logo,
+        headerMenu: headerMenu
+      };
+    };
+  });
+
+angular.module('broen')
+  .directive('broenHeader',function($window, $compile, broenNavState, broenCustomize){
     return {
       templateUrl: 'broen/templates/broen.header.html',
       restrict: 'A',
       replace: true,
       link: function(scope, element) {
         scope.nav = broenNavState;
-        // Append the user configurable logo to the page
+        // Add the customizable logo
         angular
-          .element(element.children()[0])
-          .append( $compile(broenLogo.logo)(scope) );
+          .element( element[0].querySelector('.broen-logo') )
+          .append( $compile(broenCustomize.logo)(scope) );
+
+        // Add the customizable header menu
+        angular
+          .element( element[0].querySelector('.broen-headermenu-custom') )
+          .append( $compile(broenCustomize.headerMenu)(scope) );
       }
-    };
-  });
-
-angular.module('broen')
-  .provider('broenLogo',function(){
-
-    var defaultLogo = '<span class="fa fa-ship broen-logo-icon"></span>' +
-      '<span class="logo-text"> Broen</span>';
-
-    var logo = defaultLogo;
-
-    this.setLogo = function(html){
-      logo = html;
-    }
-
-    this.$get = function(){
-      return {
-        logo: logo
-      };
     };
   });
 
@@ -163,6 +182,6 @@ angular.module('broen')
     };
   });
 
-angular.module("broen").run(["$templateCache", function($templateCache) {$templateCache.put("broen/templates/broen.header.html","<div class=\"broen-header container-fluid\">\n  <!-- logo goes inside here -->\n  <div class=\"broen-logo col-xs-10\"></div>\n  <!-- top menu items go inside here -->\n  <div class=\"broen-top-menu col-xs-2\">\n    <div class=\"broen-top-menu-toggle navbar-toggle\" ng-click=\"nav.navbarMobileToggle()\">\n      <span class=\"sr-only\">Toggle navigation</span>\n      <span class=\"fa fa-bars fa-lg\" aria-hidden=\"true\"></span>\n    </div>\n  </div>\n</div>\n");
+angular.module("broen").run(["$templateCache", function($templateCache) {$templateCache.put("broen/templates/broen.header.html","<div class=\"broen-header container-fluid\">\n  <!-- logo goes inside here -->\n  <div class=\"broen-logo col-xs-8\"></div>\n\n  <!-- header menu items go inside here -->\n  <div class=\"broen-headermenu col-xs-4\">\n    <!-- Bootstrap mobile hamburger menu toggle -->\n    <div class=\"broen-headermenu-toggle navbar-toggle\" ng-click=\"nav.navbarMobileToggle()\">\n      <span class=\"sr-only\">Toggle navigation</span>\n      <span class=\"fa fa-bars fa-lg\" aria-hidden=\"true\"></span>\n    </div>\n    <!-- Additional items appended here -->\n    <div class=\"broen-headermenu-custom\"></div>\n  </div>\n</div>\n");
 $templateCache.put("broen/templates/broen.html","<div class=\"broen-container\">\n  <div broen-header></div>\n  <div class=\"broen-body\">\n    <div broen-navbar></div>\n    <div class=\"broen-page container-fluid\" ng-click=\"nav.navbarUnsetOpen()\">\n      <!-- User\'s content transcludes here -->\n      <div ng-transclude></div>\n    </div>\n  </div>\n</div>\n");
 $templateCache.put("broen/templates/broen.navbar.html","<div class=\"broen-nav-container\"\n  ng-class=\"{\n    \'nav-collapsed\': !nav.state.regularOpen,\n    \'nav-mobile-collapsed\': !nav.state.mobileOpen\n  }\">\n  <div class=\"broen-navbar navbar-collapse\"\n    ng-class=\"{\n      \'navbar-mobile-open\': nav.state.mobileOpen,\n      \'navbar-open\': nav.state.regularOpen\n    }\">\n\n    <ul class=\"broen-nav nav navbar-nav\">\n      <!-- Sidebar toggles -->\n      <li id=\"toggle-compress\" class=\"broen-nav-item nav-collapse-toggle\"\n        ng-click=\"nav.navbarRegular(false)\">\n        <div class=\"nav-item-container\">\n          <span class=\"fa fa-compress fa-fw fa-lg rotate-45\"></span>\n          <span class=\"nav-item-text nav-toggle-text\"> Collapse Menu</span>\n        </div>\n      </li>\n      <li id=\"toggle-expand\" class=\"broen-nav-item nav-collapse-toggle\"\n        title=\"Open Menu\" data-toggle=\"tooltip\" data-placement=\"right\"\n        ng-click=\"nav.navbarRegular(true)\">\n        <div class=\"nav-item-container\">\n          <span class=\"fa fa-expand fa-fw fa-lg rotate-45\"></span>\n        </div>\n      </li>\n      <!-- Navbar -->\n      <li class=\"broen-nav-item nav-item-{{::$index}}\"\n        ng-repeat=\"listitem in nav.navlist track by $index\"\n        ng-class=\"{\'nav-item-open\': nav.navbarCheckOpen($index)}\"\n        ng-click=\"nav.navigate(listitem.link)\">\n        <div class=\"nav-item-container\" ng-click=\"nav.navbarToggleOpenItem($index)\">\n          <span class=\"nav-item-icon fa {{::listitem.icon}} fa-fw fa-lg\"></span>\n          <span class=\"nav-item-text\"> {{::listitem.title}}</span>\n          <span class=\"nav-item-caret nav-item-caret-left fa fa-caret-left pull-right\"\n            ng-if=\"!listitem.link && (listitem.items && listitem.items.length)\"></span>\n          <span class=\"nav-item-caret nav-item-caret-down fa fa-caret-down pull-right\"\n            ng-if=\"!listitem.link && (listitem.items && listitem.items.length)\"></span>\n        </div>\n        <ul ng-if=\"listitem.items.length\" class=\"broen-nav-dropdown nav-item-group nav-item-group-{{::$index}}\">\n          <li class=\"nav-link\"\n            ng-repeat=\"item in listitem.items\"\n            ng-click=\"nav.navigate(item.link)\">\n              {{::item.name}}\n          </li>\n        </ul>\n      </li>\n    </ul>\n  </div>\n</div>\n");}]);

@@ -40,15 +40,15 @@
       // AngularJS implementation: include the broen module in your app
       var yourApp = angular.module('yourApp', ['broen']);
       // Add a custom config for the logo and nav items
-      // logo: `broenLogoProvider.setLogo( yourLogoHtml )`
+      // logo: `broenCustomizeProvider.setLogo( yourLogoHtml )`
       // nav: `broenNavProvider.setNav( yourNavArray )`
       // nav item collapses on blur: `broenNavProvider.setCollapseItemOnBlur( Boolean )`
-      yourApp.config(function(broenNavProvider, broenLogoProvider){
+      yourApp.config(function(broenNavProvider, broenCustomizeProvider){
 
         var yourLogoHtml = '<span class="fa fa-trophy broen-logo-icon"></span>' +
           '<span> Broen FTW<span class="logo-text">!!!</span></span>';
 
-        broenLogoProvider.setLogo( yourLogoHtml ); // Adds your logo to broen
+        broenCustomizeProvider.setLogo( yourLogoHtml ); // Adds your logo to broen
 
         var yourNavList = [{
             title: 'Dashboard',

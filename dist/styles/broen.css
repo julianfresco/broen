@@ -117,13 +117,23 @@ body {
   color: #f14444;
 }
 
-.broen-top-menu-toggle {
+.broen-headermenu-custom {
+  line-height: 40px;
+  font-size: 1.1em;
+}
+
+.broen-headermenu-toggle {
   margin: 0;
   padding: 8px;
   cursor: pointer;
   color: #fefefe;
 }
 
+@media (max-width: 767px) {
+  .broen-headermenu-text {
+    padding-right: 10px;
+  }
+}
 /** Main Theme Base colors **/
 /** Add Other Theme Vars Here, then Replace Style Sheet Variables **/
 /** Layout **/

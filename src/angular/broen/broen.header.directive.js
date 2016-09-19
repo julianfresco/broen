@@ -1,15 +1,20 @@
 angular.module('broen')
-  .directive('broenHeader',function($window, $compile, broenNavState, broenLogo){
+  .directive('broenHeader',function($window, $compile, broenNavState, broenCustomize){
     return {
       templateUrl: 'broen/templates/broen.header.html',
       restrict: 'A',
       replace: true,
       link: function(scope, element) {
         scope.nav = broenNavState;
-        // Append the user configurable logo to the page
+        // Add the customizable logo
         angular
-          .element(element.children()[0])
-          .append( $compile(broenLogo.logo)(scope) );
+          .element( element[0].querySelector('.broen-logo') )
+          .append( $compile(broenCustomize.logo)(scope) );
+
+        // Add the customizable header menu
+        angular
+          .element( element[0].querySelector('.broen-headermenu-custom') )
+          .append( $compile(broenCustomize.headerMenu)(scope) );
       }
     };
   });

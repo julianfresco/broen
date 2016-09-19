@@ -1,11 +1,15 @@
 <div class="broen-header container-fluid">
   <!-- logo goes inside here -->
-  <div class="broen-logo col-xs-10"></div>
-  <!-- top menu items go inside here -->
-  <div class="broen-top-menu col-xs-2">
-    <div class="broen-top-menu-toggle navbar-toggle" ng-click="nav.navbarMobileToggle()">
+  <div class="broen-logo col-xs-8"></div>
+
+  <!-- header menu items go inside here -->
+  <div class="broen-headermenu col-xs-4">
+    <!-- Bootstrap mobile hamburger menu toggle -->
+    <div class="broen-headermenu-toggle navbar-toggle" ng-click="nav.navbarMobileToggle()">
       <span class="sr-only">Toggle navigation</span>
       <span class="fa fa-bars fa-lg" aria-hidden="true"></span>
     </div>
+    <!-- Additional items appended here -->
+    <div class="broen-headermenu-custom"></div>
   </div>
 </div>

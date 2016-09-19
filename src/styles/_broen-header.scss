@@ -38,9 +38,21 @@
   color: $header-text-emphasis-color;
 }
 
-.broen-top-menu-toggle {
+.broen-headermenu-custom {
+  line-height: 40px;
+  font-size: 1.1em;
+}
+
+.broen-headermenu-toggle {
   margin: 0;
   padding: 8px;
   cursor: pointer;
   color: $header-mobile-nav-toggle-color;
+}
+
+
+@media (max-width: 767px) {
+  .broen-headermenu-text {
+    padding-right: 10px;
+  }
 }
