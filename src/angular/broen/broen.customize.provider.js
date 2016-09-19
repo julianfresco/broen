@@ -7,7 +7,7 @@ angular.module('broen')
     var defaultLogo = '<span class="fa fa-ship broen-logo-icon"></span>' +
       '<span class="logo-text"> Broen</span>';
 
-    var defaultHeaderMenu = '<div class="pull-right broen-headermenu-text">Hello Broen!</div>'
+    var defaultHeaderMenu = '<div class="pull-right broen-headermenu-text">Hello Broen!</div>';
 
     var logo = defaultLogo,
         headerMenu = defaultHeaderMenu;
