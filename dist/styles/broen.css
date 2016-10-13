@@ -364,11 +364,12 @@ body {
 }
 
 .broen-page {
-  padding-top: 10px;
   min-height: 100%;
-  margin-left: 225px;
-  box-sizing: border-box;
   background-color: #fefefe;
+  box-sizing: border-box;
+  overflow-x: auto;
+  margin-left: 225px;
+  padding-top: 10px;
   border-left: 1px solid #555;
 }
 

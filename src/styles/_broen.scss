@@ -11,11 +11,12 @@
 }
 
 .broen-page {
-  padding-top: 10px;
   min-height: 100%;
-  margin-left: $sidebar-open-width;
-  box-sizing: border-box;
   background-color: $broen-page-bg;
+  box-sizing: border-box;
+  overflow-x: auto;
+  margin-left: $sidebar-open-width;
+  padding-top: 10px;
   border-left: 1px solid $broen-page-border-color;
 }
 
